@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Parcial1.Models.Resultado>
+
+@{
+    ViewData["Title"] = "Resultados";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Crear Nuevo Resultado</a>
+        </p>
+        <table id="resultadosTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.BolaExtraida)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaHoraExtraccion)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaCreacion)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaModificacion)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdCartonGanadorNavigation.IdCarton)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdJuegoNavigation.IdJuego)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.BolaExtraida)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaHoraExtraccion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaCreacion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaModificacion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdCartonGanadorNavigation.IdCarton)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdJuegoNavigation.IdJuego)</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Acciones">
+                                <a asp-action="Edit" asp-route-id="@item.IdResultado" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-pencil-alt"></i> 
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.IdResultado" class="btn btn-sm btn-info">
+                                    <i class="fas fa-info-circle"></i> 
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.IdResultado" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> 
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scripts al final del body -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#resultadosTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "language": {
+                    "search": "Buscar:",
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    "zeroRecords": "No se encontraron resultados",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

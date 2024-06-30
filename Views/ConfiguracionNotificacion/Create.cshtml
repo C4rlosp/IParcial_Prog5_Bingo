@@ -1,0 +1,49 @@
+﻿@model Parcial1.Models.ConfiguracionNotificacion
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>Configuracion de Notificacion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TipoNotificacion" class="control-label"></label>
+                <input asp-for="TipoNotificacion" class="form-control" />
+                <span asp-validation-for="TipoNotificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventoNotificacion" class="control-label"></label>
+                <input asp-for="EventoNotificacion" class="form-control" />
+                <span asp-validation-for="EventoNotificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlantillaMensaje" class="control-label"></label>
+                <input asp-for="PlantillaMensaje" class="form-control" />
+                <span asp-validation-for="PlantillaMensaje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destinatarios" class="control-label"></label>
+                <input asp-for="Destinatarios" class="form-control" />
+                <span asp-validation-for="Destinatarios" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

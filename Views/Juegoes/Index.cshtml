@@ -1,0 +1,162 @@
+﻿@model IEnumerable<Parcial1.Models.Juego>
+
+@{
+    ViewData["Title"] = "Juego";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#juegoTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "language": {
+                    "search": "Buscar:",
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    "zeroRecords": "No se encontraron resultados",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+            // Función para realizar la búsqueda
+            $('#buscarForm').submit(function (event) {
+                event.preventDefault(); // Evitar el envío del formulario por defecto
+
+                var fechaJuego = $('#fechaJuego').val();
+                var estado = $('#estado').val();
+
+                $.ajax({
+                    url: '/api/juegoes/buscar',
+                    type: 'GET',
+                    data: {
+                        fechaJuego: fechaJuego,
+                        estado: estado
+                    },
+                    success: function (data) {
+                        // Limpiar tabla antes de agregar nuevos datos
+                        $('#juegoTable tbody').empty();
+
+                        // Agregar los resultados a la tabla
+                        data.forEach(function (item) {
+                            var row = '<tr>' +
+                                '<td>' + item.FechaJuego + '</td>' +
+                                '<td>' + item.TipoJuego + '</td>' +
+                                '<td>' + item.PrecioCarton + '</td>' +
+                                '<td>' + item.PremioMayor + '</td>' +
+                                '<td>' + item.PremiosMenores + '</td>' +
+                                '<td>' + item.Estado + '</td>' +
+                                '<td>' + item.FechaCreacion + '</td>' +
+                                '<td>' + item.FechaModificacion + '</td>' +
+                                '<td>' +
+                                '<div class="btn-group" role="group">' +
+                                '<a asp-action="Edit" asp-route-id="' + item.IdJuego + '" class="btn btn-sm btn-warning">' +
+                                '<i class="fas fa-pencil-alt"></i>' +
+                                '</a>' +
+                                '<a asp-action="Details" asp-route-id="' + item.IdJuego + '" class="btn btn-sm btn-info">' +
+                                '<i class="fas fa-info-circle"></i>' +
+                                '</a>' +
+                                '<a asp-action="Delete" asp-route-id="' + item.IdJuego + '" class="btn btn-sm btn-danger">' +
+                                '<i class="fas fa-trash"></i>' +
+                                '</a>' +
+                                '</div>' +
+                                '</td>' +
+                                '</tr>';
+                            $('#juegoTable tbody').append(row);
+                        });
+                    },
+                    error: function () {
+                        alert('Error al buscar juegos.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Crear Juego</a>
+        </p>
+
+        <!-- Formulario de búsqueda -->
+        <form id="buscarForm" class="form-inline mb-3">
+            <div class="form-group mr-2">
+                <input type="date" class="form-control" id="fechaJuego" placeholder="Fecha del juego">
+            </div>
+            <div class="form-group mr-2">
+                <input type="text" class="form-control" id="estado" placeholder="Estado">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        <!-- Tabla de juegos -->
+        <table id="juegoTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FechaJuego)</th>
+                    <th>@Html.DisplayNameFor(model => model.TipoJuego)</th>
+                    <th>@Html.DisplayNameFor(model => model.PrecioCarton)</th>
+                    <th>@Html.DisplayNameFor(model => model.PremioMayor)</th>
+                    <th>@Html.DisplayNameFor(model => model.PremiosMenores)</th>
+                    <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaCreacion)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaModificacion)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FechaJuego)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TipoJuego)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrecioCarton)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PremioMayor)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PremiosMenores)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaCreacion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaModificacion)</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.IdJuego" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.IdJuego" class="btn btn-sm btn-info">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.IdJuego" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

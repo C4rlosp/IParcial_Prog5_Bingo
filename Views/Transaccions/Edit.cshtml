@@ -1,0 +1,59 @@
+﻿@model Parcial1.Models.Transaccion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Transaccion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdTransaccion" />
+            <div class="form-group">
+                <label asp-for="IdJugador" class="control-label"></label>
+                <select asp-for="IdJugador" class="form-control" asp-items="ViewBag.IdJugador"></select>
+                <span asp-validation-for="IdJugador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdJuego" class="control-label"></label>
+                <select asp-for="IdJuego" class="form-control" asp-items="ViewBag.IdJuego"></select>
+                <span asp-validation-for="IdJuego" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoTransaccion" class="control-label"></label>
+                <input asp-for="TipoTransaccion" class="form-control" />
+                <span asp-validation-for="TipoTransaccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Monto" class="control-label"></label>
+                <input asp-for="Monto" class="form-control" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaHora" class="control-label"></label>
+                <input asp-for="FechaHora" class="form-control" />
+                <span asp-validation-for="FechaHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaModificacion" class="control-label"></label>
+                <input asp-for="FechaModificacion" class="form-control" />
+                <span asp-validation-for="FechaModificacion" class="text-danger"></span>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+
+                    <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+
+                </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

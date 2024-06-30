@@ -1,0 +1,252 @@
+﻿@{
+    ViewData["Title"] = "PARCIAL #1";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Fondo gris claro */
+            color: #495057; /* Color de texto gris oscuro */
+        }
+
+        header {
+            background-color: #343a40; /* Fondo negro del encabezado */
+            color: #ffffff; /* Texto blanco en el encabezado */
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        main {
+            background-color: #ffffff; /* Fondo blanco del contenido principal */
+            padding: 20px;
+            border: 1px solid #ced4da; /* Borde del contenido */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para la tabla */
+        }
+
+        th, td {
+            border: 1px solid #e9ecef; /* Borde de celda */
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #343a40; /* Fondo gris oscuro para las cabeceras */
+            color: #ffffff; /* Texto blanco para las cabeceras */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa; /* Fondo gris claro para filas pares */
+        }
+
+        tr:hover {
+            background-color: #e9ecef; /* Color de fondo al pasar el mouse sobre la fila */
+        }
+
+        /* Estilos para el título */
+        .title-section {
+            background-color: #007bff; /* Fondo azul */
+            color: #ffffff; /* Texto blanco */
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p><strong>Alumno:</strong> CARLOS ERNESTO PEREZ PEREZ</p>
+        <p><strong>Profesor:</strong> JAIRO ALBERTO ZUÑIGA GOMEZ</p>
+        <p><strong>Curso:</strong> PROGRAMACION V | DESARROLLO EN MVC</p>
+        <p><strong>Fecha:</strong> 2024/06/29</p>
+    </header>
+
+    <!-- Título con fondo y color agradable -->
+    <div class="title-section">
+        <h1>Bingo Universitario UH</h1>
+    </div>
+
+    <main>
+        <!-- Contenido principal -->
+        <p>
+            <strong>Mantenimiento a realizar</strong>
+        </p>
+        <!-- Resto del contenido -->
+        <p>
+            Siguiendo la estructura para el desarrollo de mantenimientos vistas en las clases hasta la fecha, realice el siguiente mantenimiento:
+        </p>
+        <ul>
+            <li>
+                Realice una app en Asp.Net.Core 7, C# 11, Razor, Entity Framework 7 que permita ejecutar el mantenimiento de las siguientes operaciones:
+                <ul>
+                    <li>
+                        Módulo administrativo del sistema de e-Bingo que ofrece la compañía MiBingoGanador Campos Validaciones cliente Opción de búsqueda por WebApi
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Módulo</th>
+                                    <th>Campos</th>
+                                    <th>Validaciones cliente</th>
+                                    <th>Opción de búsqueda por WebApi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>jugador</td>
+                                    <td>11</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>juego</td>
+                                    <td>9</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>carton</td>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>resultado</td>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>transaccion</td>
+                                    <td>7</td>
+                                    <td>1</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>producto</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>promocion</td>
+                                    <td>11</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>metodoPago</td>
+                                    <td>7</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>pedido</td>
+                                    <td>9</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>detallePedido</td>
+                                    <td>9</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>parametrosGenerales</td>
+                                    <td>6</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>configuracionJuego</td>
+                                    <td>8</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>configuracionPromocion</td>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>configuracionMetodoPago</td>
+                                    <td>6</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>configuracionNotificacion</td>
+                                    <td>7</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td></td>
+                                    <td>15</td>
+                                    <td>120</td>
+                                    <td>16</td>
+                                    <td>21</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Suba en un archivo zip o rar el proyecto completo al Moodle al apartado Parcial I, el cual debe compilarse y ejecutarse sin inconvenientes. Se puede incluir la base de datos, sino se regenerará con Entity Framework cuando se corra por primera vez.
+            </li>
+            <li>
+                La interfaz debe contener los siguientes elementos:
+                <ul>
+                    <li>Menú que contenga el acceso al mantenimiento (CRUD) de todas las tablas arriba indicadas y la página de inicio. Es conveniente que estos mantenimientos estén en submenúes de acuerdo a su clasificación para facilitar su acceso. El menú debe ser una vista parcial que se pueda invocar desde múltiples páginas.</li>
+                    <li>Footer con al menos copyright, fecha última actualización y versión.</li>
+                    <li>Se debe utilizar Bootstrap última versión.</li>
+                    <li>Se debe utilizar páginas Razor.</li>
+                    <li>Las páginas Razor deben estar personalizadas con botones e iconos de Bootstrap.</li>
+                    <li>Se debe utilizar Entity Framework última versión.</li>
+                    <li>Se debe utilizar SQL Server 2022 Developer o superior.</li>
+                    <li>Se debe utilizar MVVM.</li>
+                    <li>Se deben respetar los principios SOLID.</li>
+                    <li>Debe utilizar AntiForgeryToken donde corresponda.</li>
+                    <li>Se deben implementar las validaciones tanto del lado del cliente como del servidor.</li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>Universidad Hispanoamérica 2024 <a href="https://uh.ac.cr/">https://uh.ac.cr/</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a {
+    color: #0077cc;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+/* Nuevos estilos para mejorar el menú lateral */
+.scrollable-container {
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    white-space: nowrap; /* Evita que el contenido se divida en múltiples líneas */
+}
+
+.sidebar-brand .sidebar-brand-icon {
+    width: 45px; /* Ancho del icono del logo */
+}
+
+.sidebar-brand .sidebar-brand-text {
+    font-size: 1.2rem; /* Tamaño del texto del logo */
+    font-weight: bold; /* Peso del texto del logo */
+}
+
+.sidebar .nav-link {
+    font-size: 0.9rem; /* Tamaño de fuente para los íconos y textos */
+    color: rgba(255, 255, 255, 0.8); /* Color del texto normal */
+}
+
+    .sidebar .nav-link:hover {
+        color: #fff; /* Color del texto al pasar el mouse */
+        background-color: rgba(255, 255, 255, 0.1); /* Color de fondo al pasar el mouse */
+    }
+
+    .sidebar .nav-link i {
+        margin-right: 8px; /* Espacio a la derecha de los íconos */
+    }
+
+.sidebar-divider {
+    margin: 10px 0; /* Espacio entre los elementos del menú */
+}
+/* Estilos para los nav-items del menú lateral */
+.sidebar .nav-item {
+    margin-bottom: 5px; /* Espacio entre elementos del menú */
+}
+
+.sidebar .nav-link {
+    padding: 12px 20px; /* Ajuste del padding para mejor espacio de clic */
+    font-size: 0.95rem; /* Tamaño de fuente para los íconos y textos */
+    color: rgba(255, 255, 255, 0.8); /* Color del texto normal */
+    font-color: dark;
+}
+
+    .sidebar .nav-link:hover {
+        color: #fff; /* Color del texto al pasar el mouse */
+        background-color: rgba(255, 255, 255, 0.1); /* Color de fondo al pasar el mouse */
+    }
+
+    .sidebar .nav-link.active {
+        font-weight: bold; /* Texto en negrita para el enlace activo */
+        color: #fff; /* Color del texto para el enlace activo */
+        background-color: #1b6ec2; /* Color de fondo para el enlace activo */
+        border-left: 4px solid #1861ac; /* Borde izquierdo para el enlace activo */
+    }

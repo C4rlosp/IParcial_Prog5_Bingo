@@ -1,0 +1,60 @@
+﻿@model Parcial1.Models.Carton
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-danger">Eliminar</h1>
+<h3 class="text-danger">¿Estás seguro de que quieres eliminar esto?</h3>
+<div>
+    <h4 class="text-danger">Carton</h4>
+</div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Numeros)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Numeros)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaModificacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaModificacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdJuegoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdJuegoNavigation.IdJuego)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdJugadorNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdJugadorNavigation.IdJugador)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCarton" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+  
+        <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+    
+    </form>
+</div>

@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Bingo Universitario</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/site.css" rel="stylesheet">
+    <link href="~/Parcial1.styles.css" rel="stylesheet">
+
+    <!-- SB Admin 2 styles -->
+    <link href="~/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <!-- Optional: Toastr and SweetAlert styles -->
+    <link href="~/vendor/toastr/toastr.min.css" rel="stylesheet">
+    <link href="~/vendor/sweetalert/sweetalert.css" rel="stylesheet">
+
+    <!-- Additional custom styles -->
+    <style>
+        /* Estilos para el contenedor principal */
+        body {
+            overflow-x: hidden; /* Evita el desplazamiento horizontal del body */
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .content-main {
+            flex-grow: 1; /* El contenido principal crece para ocupar todo el espacio disponible */
+            padding: 20px; /* Espaciado interior */
+        }
+
+        .sidebar {
+            width: 250px; /* Ancho del menú lateral */
+            background-color: #1a1b1e; /* Color de fondo del menú lateral */
+            color: #fff; /* Color de texto del menú lateral */
+            height: 100vh; /* Altura del menú lateral */
+            position: fixed; /* Fijar el sidebar en posición */
+            left: 0; /* Alinear el sidebar a la izquierda */
+            top: 0; /* Alinear el sidebar al inicio */
+            overflow-y: auto; /* Desplazamiento vertical */
+            z-index: 100; /* Asegurar que el sidebar esté sobre otros elementos */
+            transition: width 0.3s; /* Transición suave del ancho */
+        }
+
+        .collapsed {
+            width: 75px; /* Ancho reducido del sidebar cuando está colapsado */
+        }
+
+        .navbar {
+            background-color: #ffffff; /* Color de fondo de la barra de navegación */
+            border-bottom: 1px solid #e5e5e5; /* Borde inferior de la barra de navegación */
+        }
+
+        <style>
+    /* Estilos para el fondo gradiente y el menú */
+    body {
+        background: linear-gradient(to right, #4e54c8, #8f94fb);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow-x: hidden;
+    }
+
+    /* Estilo para el sidebar */
+    .sidebar {
+        width: 250px;
+        background-color: #1a1b1e;
+        color: #fff;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        overflow-y: auto;
+        z-index: 100;
+        transition: width 0.3s;
+    }
+
+    /* Estilo para los ítems del menú */
+    .navbar-nav .nav-item .nav-link {
+        padding: 10px 15px;
+        display: block;
+        color: #ccc; /* Color de texto normal */
+        transition: transform 0.2s ease-out; /* Transición para la transformación */
+    }
+
+    /* Estilo para los ítems del menú activos */
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+        background-color: rgba(255, 255, 255, 0.1); /* Fondo reflectivo */
+        color: #fff; /* Color de texto cuando se selecciona */
+        transform: scale(1.05); /* Aumento de escala al hacer hover */
+    }
+
+    /* Resto de estilos */
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .content-main {
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .navbar {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+    }
+</style>
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <!-- Contenido del menú lateral -->
+        <ul class="navbar-nav">
+            <!-- Items del menú -->
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Home")">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Privacy", "Home")">
+                    <i class="fas fa-fw fa-lock"></i>
+                    <span>Privacy</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Cartons")">
+                    <i class="fas fa-fw fa-ticket-alt"></i>
+                    <span>Carton</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "ConfiguracionJuegos")">
+                    <i class="fas fa-fw fa-gamepad"></i>
+                    <span>ConfiguracionJuegos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "ConfiguracionMetodoPagos")">
+                    <i class="fas fa-fw fa-credit-card"></i>
+                    <span>ConfiguracionMetodoPago</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "ConfiguracionNotificacion")">
+                    <i class="fas fa-fw fa-bell"></i>
+                    <span>ConfiguracionNotificacion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "ConfiguracionPromocion")">
+                    <i class="fas fa-fw fa-gift"></i>
+                    <span>ConfiguracionPromocion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "DetallePedidos")">
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>DetallePedidos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Juegoes")">
+                    <i class="fas fa-fw fa-chess"></i>
+                    <span>Juegos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Jugador")">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Jugador</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "MetodoPago")">
+                    <i class="fas fa-fw fa-credit-card"></i>
+                    <span>MetodoPago</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "ParametrosGenerales")">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>ParametrosGenerales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Pedido")">
+                    <i class="fas fa-fw fa-shopping-cart"></i>
+                    <span>Pedido</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Producto")">
+                    <i class="fas fa-fw fa-box"></i>
+                    <span>Producto</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Resultado")">
+                    <i class="fas fa-fw fa-poll"></i>
+                    <span>Resultado</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Index", "Transaccions")">
+                    <i class="fas fa-fw fa-exchange-alt"></i>
+                    <span>Transaccion</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Fin del Sidebar -->
+    <!-- Contenido principal -->
+    <div class="content-wrapper">
+        <!-- Barra de navegación superior -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Juan Carlos Mendez Soto.</span>
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                         aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="@Url.Action("Perfil","Home")">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Perfil
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Salir
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav>
+        <!-- Fin de la barra de navegación -->
+        <!-- Contenido principal desplazable horizontalmente -->
+        <div class="content-main">
+            <!-- Contenido dinámico que se carga según el ítem seleccionado del menú -->
+            @RenderBody()
+        </div>
+        <!-- Fin del contenido principal -->
+        <!-- Pie de página -->
+       @*  <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="text-center my-auto">
+                    <span>Footer</span>
+                </div>
+            </div>
+        </footer> *@
+        <!-- Fin del pie de página -->
+
+    </div>
+    <!-- Fin del Contenido principal -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts adicionales -->
+    <script>
+        $(document).ready(function () {
+            // Manejo del botón de toggle del sidebar
+            $('#sidebarToggleTop').on('click', function () {
+                $('body').toggleClass('sidebar-toggled');
+                $('#sidebar').toggleClass('collapsed');
+                if ($('#sidebar').hasClass('collapsed')) {
+                    $('.nav-link span').hide();
+                } else {
+                    $('.nav-link span').show();
+                }
+            });
+        });
+    </script>
+    <!-- Section for page-specific scripts -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
